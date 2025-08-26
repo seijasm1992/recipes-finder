@@ -5,7 +5,7 @@ function Filters({ recetas, setNewRecetas }) {
     const [cookMinutes, setCookMinutes] = useState("");
     const [search, setSearch] = useState("");
    
-    const applyFilters = () => {
+    const applyFilters = useCallback(() => {
         let filteredRecetas = [...recetas]; // Copia del array original
     
         // Filtro por tiempo de preparación
@@ -34,7 +34,7 @@ function Filters({ recetas, setNewRecetas }) {
         }
     
         setNewRecetas(filteredRecetas); // Actualiza el estado en App.js
-    };
+    }, [prepMinutes, cookMinutes, search, recetas, setNewRecetas]);
 
     useEffect(() => {
         applyFilters();
