@@ -4,10 +4,10 @@ function SectionReady() {
   return (
     <section className='relative container mx-auto py-24 rounded-[20px] bg-[#E8EDE7] overflow-hidden' >
       <div className='absolute bottom-[-50px] left-[-50px]'>
-        <img src="/pattern-fork.svg" className='w-full h-full object-contain w-[200px] h-[200px]'  />
+        <img src="/pattern-fork.svg" className='w-full h-full object-contain w-[200px] h-[200px] '  alt='pattern-fork' />
       </div>
       <div className='absolute top-[6px] right-[-60px]'>
-        <img src="/pattern-knife.svg" className='w-full h-full object-contain w-[200px] h-[200px]' />
+        <img src="/pattern-knife.svg" className='w-full h-full object-contain w-[200px] h-[200px]' alt='pattern-knife' />
       </div>
       <div className='flex flex-col gap-4 items-center text-center pb-10'>
         <h2 className='text-[3rem] font-bold text-[#153C37] font-nunito'>Ready to cook smarter?</h2>

@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 
 function Filters({ recetas, setNewRecetas }) {  
     const [prepMinutes, setPrepMinutes] = useState("");
     const [cookMinutes, setCookMinutes] = useState("");
     const [search, setSearch] = useState("");
    
-    const applyFilters = () => {
+    const applyFilters = useCallback(() => {
         let filteredRecetas = [...recetas]; // Copia del array original
     
         // Filtro por tiempo de preparación
@@ -34,11 +34,11 @@ function Filters({ recetas, setNewRecetas }) {
         }
     
         setNewRecetas(filteredRecetas); // Actualiza el estado en App.js
-    };
+    }, [prepMinutes, cookMinutes, search, recetas, setNewRecetas]);
 
     useEffect(() => {
         applyFilters();
-    }, [prepMinutes, cookMinutes, search]);
+    }, [applyFilters]);
     
     // Event handlers para los inputs
     const handleSearch = (e) => {
@@ -58,9 +58,9 @@ function Filters({ recetas, setNewRecetas }) {
     const uniqueCookTimes = [...new Set(recetas.map(receta => receta.cookMinutes))].sort((a, b) => a - b);
     
     return (
-        <div className='flex flex-col flex-wrap md:flex-row items-center  w-full mb-2 container mx-auto'>
-            <div className='  w-full mb-2'>
-                <div className='flex flex-col md:flex-row gap-4'>
+        <div className='w-full flex justify-between items-center container mx-auto'>
+            <div className='flex flex-row items-center justify-between w-full mb-2'>
+                <div className='flex flex-row gap-4'>
                     <select 
                         value={prepMinutes}
                         onChange={handlePrepMinutes}
@@ -85,14 +85,14 @@ function Filters({ recetas, setNewRecetas }) {
                 </div>
 
                 <div className='relative'>
-                    <div className='absolute top-[27px] left-[10px]'>
-                        <img src="icon-search.svg" alt="search" className='w-[25px] h-[25px]' />
+                    <div className='absolute top-[16px] left-[10px]'>
+                        <img src="icon-search.svg" alt="search" className='w-[20px] h-[20px]' />
                     </div>
                     <input 
                         type="search" 
                         value={search}
                         onChange={handleSearch}
-                        className='text-[#183B35] font-nunitoSans text-md bg-[#ffffff] p-[12px] rounded-md  w-full outline-none pl-[40px] mt-4 md:mt-0' 
+                        className='text-[#183B35] font-nunitoSans text-md bg-[#ffffff] p-[12px] rounded-md w-[300px] outline-none pl-[40px]' 
                         placeholder="Search by name or ingredients" 
                     />
                 </div>

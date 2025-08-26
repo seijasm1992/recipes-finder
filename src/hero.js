@@ -22,7 +22,7 @@ function Hero() {
 
       
         <div className='container mx-auto border-[16px] border-white rounded-lg overflow-hidden mt-24 shadow-lg'>
-        <img src="/image-home-hero-large.webp " alt="Hero image" />
+        <img src="/image-home-hero-large.webp " alt="Hero" />
         </div>
     </div>
     );
