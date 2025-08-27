@@ -58,8 +58,8 @@ function Filters({ recetas, setNewRecetas }) {
     const uniqueCookTimes = [...new Set(recetas.map(receta => receta.cookMinutes))].sort((a, b) => a - b);
     
     return (
-        <div className='flex flex-col flex-wrap md:flex-row items-center  w-full mb-2 container mx-auto bg-red-500'>
-            <div className='  w-full mb-2'>
+        <div className='flex flex-col flex-wrap md:flex-row items-center  w-full mb-2 container mx-auto '>
+            <div className='  w-full mb-2 bg-white'>
                 <div className='flex flex-col md:flex-row gap-4'>
                     <select 
                         value={prepMinutes}
