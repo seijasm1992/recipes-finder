@@ -59,7 +59,7 @@ function Filters({ recetas, setNewRecetas }) {
     
     return (
         <div className='flex flex-col flex-wrap md:flex-row items-center  w-full mb-2 container mx-auto '>
-            <div className='  w-full mb-2 bg-white'>
+            <div className='  w-full mb-2 '>
                 <div className='flex flex-col md:flex-row gap-4'>
                     <select 
                         value={prepMinutes}
